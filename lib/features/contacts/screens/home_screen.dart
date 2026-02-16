@@ -1,4 +1,9 @@
+import 'package:contacts_app/features/contacts/Providers/contact_provider.dart';
+import 'package:contacts_app/features/contacts/screens/add_edit_contact_screen.dart';
+import 'package:contacts_app/features/contacts/screens/contacts_list_screen.dart';
+import 'package:contacts_app/features/contacts/screens/favorites_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../core/utils/responsive.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,8 +17,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
   final pages = const [
-    Center(child: Text("Contacts List")),
-    Center(child: Text("Favorites")),
+ ContactsListScreen(),
+ FavoritesScreen()
   ];
 
   @override
@@ -37,10 +42,16 @@ setState((){ currentIndex = i;});
           BottomNavigationBarItem(icon: Icon(Icons.star), label: "Favorites"),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+     floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (_){
+            return AddEditContactScreen();
+          }));
+         
+        },
         child: const Icon(Icons.add),
       ),
+
     );
   }
 }

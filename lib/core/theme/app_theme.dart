@@ -5,6 +5,10 @@ class AppTheme {
   static const background = Colors.white;
   static const textPrimary = Colors.black;
   static const textSecondary = Colors.grey;
+  static const cardTextColor = Colors.black;
+  static const fvrtCardTextColor = Colors.white;
+
+
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
