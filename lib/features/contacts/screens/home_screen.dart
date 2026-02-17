@@ -1,9 +1,7 @@
-import 'package:contacts_app/features/contacts/Providers/contact_provider.dart';
 import 'package:contacts_app/features/contacts/screens/add_edit_contact_screen.dart';
 import 'package:contacts_app/features/contacts/screens/contacts_list_screen.dart';
 import 'package:contacts_app/features/contacts/screens/favorites_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../../../core/utils/responsive.dart';
 
 class HomeScreen extends StatefulWidget {

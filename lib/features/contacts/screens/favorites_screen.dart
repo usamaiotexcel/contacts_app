@@ -1,6 +1,6 @@
 import 'package:contacts_app/core/theme/app_theme.dart';
 import 'package:contacts_app/features/contacts/Providers/contact_provider.dart';
-import 'package:contacts_app/features/contacts/screens/add_edit_contact_screen.dart';
+import 'package:contacts_app/features/contacts/screens/contact_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,7 +9,7 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const TextStyle style = TextStyle(color: AppTheme.fvrtCardTextColor);
+    const TextStyle style = TextStyle(color: AppTheme.fvrtCardTextColor, fontWeight: FontWeight.bold);
 
     final favorites = context.watch<ContactProvider>().favorites;
 
@@ -27,7 +27,7 @@ class FavoritesScreen extends StatelessWidget {
              Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (_) => AddEditContactScreen(contact: contact),
+                builder: (_) => ContactDetailsScreen(contact: contact),
               ),
             );
           },
@@ -35,8 +35,9 @@ class FavoritesScreen extends StatelessWidget {
             color: Colors.black,
                      elevation: 4,
             shadowColor: Colors.black,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(5)),
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
