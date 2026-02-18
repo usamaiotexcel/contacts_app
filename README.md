@@ -1,17 +1,51 @@
-# contacts_app
+# Contacts App
 
-A new Flutter project.
+A simple and responsive Contacts management app built using Flutter.
+This project demonstrates clean code structure, state management, and local database integration.
+---
+## Features
+* Add, edit, and delete contacts
+* Mark contacts as favorites
+* Call contacts directly
+* Persistent storage using SQLite
+* Fully responsive layout (mobile, tablet, desktop)
+* Clean architecture structure
+* Provider state management
+---
+## Tech Stack
+* Flutter
+* Provider (State Management)
+* SQLite (Local Database)
+* Responsive UI utilities
+---
+## Folder Structure
 
+```
+lib/
+ ┣ core/
+ ┃ ┗ theme/
+ ┣ features/
+ ┃ ┗ contacts/
+ ┃   ┣ data/
+ ┃   ┣ models/
+ ┃   ┣ screens/
+ ┃   ┗ widgets/
+ ┗ main.dart
+```
+---
+## Why I Built This
+This project was created as part of an assignment to demonstrate:
+* structured Flutter development
+* scalable folder architecture
+* clean UI practices
+* proper state handling
+* local data persistence
+---
 ## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# contacts_app
+``bash
+flutter pub get
+flutter run
+---
+## Author
+Usama
+Flutter Developer
