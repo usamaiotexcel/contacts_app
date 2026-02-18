@@ -1,5 +1,5 @@
 import 'package:contacts_app/core/theme/app_theme.dart';
-import 'package:contacts_app/features/contacts/Providers/contact_provider.dart';
+import 'package:contacts_app/features/contacts/data/contact_provider.dart';
 import 'package:contacts_app/features/contacts/screens/contact_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

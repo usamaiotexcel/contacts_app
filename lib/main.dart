@@ -1,10 +1,22 @@
-import 'package:contacts_app/features/contacts/Providers/contact_provider.dart';
+import 'package:contacts_app/features/contacts/data/contact_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'core/theme/app_theme.dart';
 import 'features/contacts/screens/home_screen.dart';
+import 'dart:io';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
 
 void main() {
+   WidgetsFlutterBinding.ensureInitialized();
+
+  print("Platform: ${Platform.operatingSystem}");
+
+  if (!Platform.isAndroid && !Platform.isIOS) {
+    sqfliteFfiInit();
+    databaseFactory = databaseFactoryFfi;
+  }
+
   runApp(const ContactsApp());
 }
 

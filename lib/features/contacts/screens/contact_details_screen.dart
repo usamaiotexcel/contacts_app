@@ -1,4 +1,5 @@
-import 'package:contacts_app/features/contacts/Providers/contact_provider.dart';
+import 'package:contacts_app/core/utils/responsive.dart';
+import 'package:contacts_app/features/contacts/data/contact_provider.dart';
 import 'package:contacts_app/features/contacts/models/contacts.dart';
 import 'package:contacts_app/features/contacts/screens/add_edit_contact_screen.dart';
 import 'package:contacts_app/features/contacts/screens/home_screen.dart';
@@ -35,7 +36,7 @@ class _ContactDetailsScreenState extends State<ContactDetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-        Center(child: Text(widget.contact!.name[0], style: TextStyle(color: Colors.black,fontSize: 125, fontWeight: FontWeight.bold, fontStyle: FontStyle.normal),)),
+        Center(child: Text(widget.contact!.name[0].toUpperCase(), style: TextStyle(color: Colors.black,fontSize: 125, fontWeight: FontWeight.bold, fontStyle: FontStyle.normal),)),
         Center(
               child: Text(
                 widget.contact!.name.toUpperCase(),

@@ -1,5 +1,6 @@
-import 'package:contacts_app/features/contacts/Providers/contact_provider.dart';
+import 'package:contacts_app/features/contacts/data/contact_provider.dart';
 import 'package:contacts_app/features/contacts/models/contacts.dart';
+import 'package:contacts_app/features/contacts/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -58,7 +59,13 @@ class _AddEditContactScreenState extends State<AddEditContactScreen> {
       );
     }
 
-    Navigator.pop(context);
+       Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) {
+          return HomeScreen();
+        },
+      ),
+    );
   }
 
   @override

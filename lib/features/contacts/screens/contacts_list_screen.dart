@@ -1,8 +1,10 @@
 import 'package:contacts_app/core/theme/app_theme.dart';
-import 'package:contacts_app/features/contacts/Providers/contact_provider.dart';
+import 'package:contacts_app/features/contacts/data/contact_provider.dart';
+import 'package:contacts_app/features/contacts/screens/add_edit_contact_screen.dart';
 import 'package:contacts_app/features/contacts/screens/contact_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactsListScreen extends StatelessWidget {
   const ContactsListScreen({super.key});
@@ -11,6 +13,11 @@ class ContactsListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = context.watch<ContactProvider>();
 
+    
+
+if (provider.isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
     if (provider.contacts.isEmpty) {
       return const Center(child: Text("No contacts added"));
     }
@@ -37,12 +44,39 @@ class ContactsListScreen extends StatelessWidget {
                   builder: (_) => ContactDetailsScreen(contact: contact),
                 ),
               );
-            },         
+            },
+          
             leading: CircleAvatar(
               child: Text(contact.name[0].toUpperCase()),
             ),
+          
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+          icon: Icon(
+            contact.isFavorite ? Icons.star : Icons.star_border,
+            color: contact.isFavorite ? Colors.amber : null,
+          ),
+          onPressed: () =>
+              context.read<ContactProvider>().toggleFavorite(contact.id),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.call, color: Colors.green),
+                  onPressed: () async {
+                    final Uri url = Uri.parse("tel:${contact.phone}");
+                    if (await canLaunchUrl(url)) {
+                      await launchUrl(url);
+                    }
+                  },
+                ),
+              ],
+            ),
           ),
         );
+
+      
+      
       },
     );
   }
